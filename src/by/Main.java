@@ -2,6 +2,7 @@ package by;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 import static java.lang.Double.*;
@@ -117,6 +118,18 @@ public class Main {
         };
           String rex = consol.get();
         System.out.println(rex  +"--- working");
+
+        //Задание: при помощи стримов из списка строк вывести только те, которые начинаются с букв ‘аа’
+        List<String> listOfStr =new ArrayList<>();
+        listOfStr.add("aa1");
+        listOfStr.add("aa2");
+        listOfStr.add("bb1");
+        listOfStr.add("bbaa1");
+        listOfStr.add("bb2");
+        listOfStr.add("aa3");
+
+        listOfStr.stream().filter(s -> s.startsWith("aa")).forEach(System.out::println);
+
 
 
 
