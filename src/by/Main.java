@@ -45,11 +45,18 @@ public class Main {
             if (counter>0) return true;
             return false;
         };
-
-
         boolean b= positArr.test(intArr);
 
+         UnaryOperator<Integer> squareVal= x ->
+         {
+             for (int i = 0; i <x.length ; i++) {
+             x[i]=(int)(Math.pow(x[i],2));
+             }
+             return x;
+         };
 
+         squareVal.apply(intArr);
+         System.out.println(Arrays.toString(intArr));
 
 
 
