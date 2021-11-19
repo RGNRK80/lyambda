@@ -1,6 +1,7 @@
 package by;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
@@ -22,25 +23,47 @@ public class Main {
                 if (x.get(i).startsWith("xx")) {
                     System.out.println(x.get(i));
                 }
-
             }
         };
-
      addSmile(str,metSort);
 
+     // Задание: используя Predicate среди массива чисел вывести только те, которые являются положительными
+
+        Integer[] intArr = new Integer[20];
+        for (int i = 0; i <intArr.length ; i++) {
+            intArr[i]=(int)(Math.random()*100);
+        }
+
+        Predicate positArr = x ->
+        {int counter=0;
+            for (Integer unit:x) {
+                if (unit>0) {
+                    counter++;
+                    System.out.println(unit);
+                }
+            }
+            if (counter>0) return true;
+            return false;
+        };
+
+
+        boolean b= positArr.test(intArr);
 
 
 
-    }
+
+
+
+
+    } //psvm
 
     public static void addSmile(ArrayList<String> x, SorStr ss) {
         for (int i=0; i<x.size();i++) {
             x.set(i,x.get(i)+" :)");}
         ss.sortstring(x);
-
-
-
     }
+} // Main
 
+interface Predicate<T> {boolean test(Integer[] t);}
+interface UnaryOperator<T> {T[] apply(T[] t);}
 
-}
