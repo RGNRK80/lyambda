@@ -46,6 +46,9 @@ public class Main {
             return false;
         };
         boolean b= positArr.test(intArr);
+        //Задание: используя Binary/Unary operator:
+        //возвеcти в квадрат массив чисел
+
 
          UnaryOperator<Integer> squareVal= x ->
          {
@@ -58,8 +61,27 @@ public class Main {
          squareVal.apply(intArr);
          System.out.println(Arrays.toString(intArr));
 
+         //вывести на экран фразы, состоящие из двух соседних списка строк
+        String[] arrStr = new String[5];
+        arrStr[0]=" 1 :)  ";
+        arrStr[1]=(" 2 :) ");
+        arrStr[2]=(" 3 :) ");
+        arrStr[3]=(" 4 :) ");
+        arrStr[4]=(" 5 :) ");
+
+        UnaryOperator<String> strVal= x -> {
+            String[] arrStr2 = new String[4];
+            for (int i = 0; i <x.length-1 ; i++) {
+                arrStr2[i]=arrStr[i]+arrStr[i+1];
+
+            }
+
+            return arrStr2;
+        };
 
 
+
+        System.out.println(Arrays.toString(strVal.apply(arrStr)));
 
 
     } //psvm
