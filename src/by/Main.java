@@ -130,6 +130,24 @@ public class Main {
 
         listOfStr.stream().filter(s -> s.startsWith("aa")).forEach(System.out::println);
 
+        List<Tester> tesList=new ArrayList<>();
+        tesList.add( new Tester("","Scout"));
+        tesList.add( new Tester("John","Smith"));
+        tesList.add( new Tester("Ol","Scorch"));
+        tesList.add( new Tester("Bill","Murrey"));
+        tesList.add( new Tester("James","Kotik"));
+        tesList.add( new Tester("Ark","Ork"));
+        tesList.add( new Tester("Jude",""));
+        tesList.add( new Tester("Matt",""));
+         //Задание: при помощи стримов из списка, содержащего объекты Tester, вывести только те, id > 3
+        // и name начинается с ‘bb’
+        tesList.stream().filter(s->s.name.startsWith("B") && s.id>0).forEach(System.out::println);
+        //Задание совместное: при помощи стримов из списка, содержащего объекты Tester, получить список строк,
+        // содержащий только имена.
+        tesList.stream().filter(s->s.surname.length()==0).forEach(System.out::println);
+
+
+
 
 
 
@@ -147,4 +165,31 @@ interface UnaryOperator<T> {T[] apply(T[] t);}
 interface Function<T, R> {R apply(T t);}
 interface Consumer<T> {void accept(T t);}
 interface Supplier<T> {T get();}
+
+
+
+
+
+class Tester{
+    String name;
+    String surname;
+    static int i;
+    int id;
+
+    public Tester(String name, String surname) {
+        this.name = name;
+        this.surname = surname;
+        i++;
+        id=i;
+    }
+
+    @Override
+    public String toString() {
+        return "Tester{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", id=" + id +
+                '}';
+    }
+}
 
