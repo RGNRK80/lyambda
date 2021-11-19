@@ -2,6 +2,7 @@ package by;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 import static java.lang.Double.*;
 
@@ -105,6 +106,18 @@ public class Main {
         };
         changer2.accept("500 EUR");
 
+        Supplier<String> consol = () ->
+        {
+            Scanner scanner=new Scanner(System.in);
+            StringBuffer rezult= new StringBuffer();
+            rezult.append(scanner.nextLine());
+            rezult.reverse();
+
+           return rezult.toString();
+        };
+          String rex = consol.get();
+        System.out.println(rex  +"--- working");
+
 
 
     } //psvm
@@ -120,3 +133,5 @@ interface Predicate<T> {boolean test(Integer[] t);}
 interface UnaryOperator<T> {T[] apply(T[] t);}
 interface Function<T, R> {R apply(T t);}
 interface Consumer<T> {void accept(T t);}
+interface Supplier<T> {T get();}
+
