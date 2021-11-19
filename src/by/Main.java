@@ -93,10 +93,17 @@ public class Main {
             return Double.parseDouble(ss[0])/CUR.valueOf(ss[1]).cursVal;
 
         };
-
         System.out.println(changer.apply("500 EUR"));
 
+        Consumer<String> changer2 = (x) ->
+        {   String[] ss;
+            ss=x.trim().split(" ");
+            System.out.println(ss.length + "  " + ss[0] + "  " + ss[1]);
+            String curr=ss[1];
+            System.out.println(Double.parseDouble(ss[0])/CUR.valueOf(ss[1]).cursVal);
 
+        };
+        changer2.accept("500 EUR");
 
 
 
