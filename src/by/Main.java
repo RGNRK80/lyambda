@@ -112,3 +112,4 @@ public class Main {
 interface Predicate<T> {boolean test(Integer[] t);}
 interface UnaryOperator<T> {T[] apply(T[] t);}
 interface Function<T, R> {R apply(T t);}
+interface Consumer<T> {void accept(T t);}
