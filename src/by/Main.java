@@ -3,6 +3,8 @@ package by;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import static java.lang.Double.*;
+
 public class Main {
     public static void main(String[] args) {
     CurrToUSD xx= (x,y)-> x*y.cursVal/CUR.USD.cursVal;
@@ -78,10 +80,24 @@ public class Main {
 
             return arrStr2;
         };
-
-
-
         System.out.println(Arrays.toString(strVal.apply(arrStr)));
+
+        //Задание: используя Function написать метод, который будет принимать в себя строку в формате сумма_валюта
+        // (через пробел), а возвращаться только сумму, причем переведенную сразу в доллары.
+
+        Function<String, Double> changer = (x) ->
+        {   String[] ss;
+            ss=x.trim().split(" ");
+            System.out.println(ss.length + "  " + ss[0] + "  " + ss[1]);
+            String curr=ss[1];
+            return Double.parseDouble(ss[0])/CUR.valueOf(ss[1]).cursVal;
+
+        };
+
+        System.out.println(changer.apply("500 EUR"));
+
+
+
 
 
     } //psvm
@@ -95,4 +111,4 @@ public class Main {
 
 interface Predicate<T> {boolean test(Integer[] t);}
 interface UnaryOperator<T> {T[] apply(T[] t);}
-
+interface Function<T, R> {R apply(T t);}
